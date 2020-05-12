@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;book-whatsapp&apos; to &apos;whatsapp&apos;" description="Rename resource &apos;book-whatsapp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/book-whatsapp" name="whatsapp" stamp="1589304175972" updateReferences="true"/>&#x0A;<refactoring comment="Delete 2 resources" deleteContents="true" description="Delete 2 resources" element1="/generated_java_book-whatsapp_sequential" element2="/generated_java_chapter-whatsapp-book-anim_sequential" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="2" stamp="1589305531201"/>
+</session>
