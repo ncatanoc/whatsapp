@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd;de.prob.units.mchBase" org.eventb.texttools.text_lastmodified="1530000568116" org.eventb.texttools.text_representation="machine machine1 refines machine0  sees ctx0&#10;&#10;variables user content chat active chatcontent muted&#10;          toread // inactive and there is a content to read&#10;          inactive // inactive&#10;&#10;&#10;invariants&#10;  @invr11 toread ∈ user ↔ user // unread status&#10;  @invr12 toread ⊆ chat // unread status is part of chat content&#10;  @invr13 inactive ⊆ chat // unread status is part of chat content&#10;  @invr14 active ∪ toread ∪ inactive = chat&#10;  @invr15 active ∩ toread = ∅&#10;  @invr16 active ∩ inactive = ∅&#10;&#10;events&#10;  event INITIALISATION extends INITIALISATION&#10;    then&#10;      @initr11 toread ≔ ∅&#10;      @initr12 inactive ≔ ∅&#10;  end&#10;&#10;  event add_user extends add_user end&#10;&#10;  event add_content extends add_content end&#10;&#10;  event create_chat_session // US-01&#10;  extends create_chat_session&#10;    then&#10;      @actr11 inactive ≔ inactive ∪ ({u1} ◁ active)&#10;  end&#10;&#10;  event select_chat // US-02&#10;  extends select_chat&#10;    then&#10;      @actr11 toread ≔ toread ∖ {u1↦u2}&#10;      @actr12 inactive ≔ (inactive ∖ {u1↦u2}) ∪ ({u1} ◁ active)&#10;  end&#10;&#10;  event chatting // US-03&#10;  extends chatting&#10;    then&#10;      @actr11 toread ≔ toread ∪ ({u2↦u1} ∖ active) ∪ ({u2↦u1} ∩ inactive)&#10;      @actr12 inactive ≔ inactive ∖ ({u2↦u1} ∩ inactive)&#10;  end&#10;&#10;  event delete_content // US-04a&#10;  extends delete_content&#10;  end&#10;&#10;  event remove_content // US-04b&#10;  extends remove_content&#10;  end&#10;&#10;  event delete_chat_session // US-05&#10;  extends delete_chat_session&#10;  end&#10;&#10;  event mute_chat // US-06&#10;  extends mute_chat&#10;    then&#10;      @act11 inactive ≔ inactive ∪ {u1↦u2}&#10;      @act12 toread ≔  toread ∖ {u1↦u2}&#10;  end&#10;&#10;  event unmute_chat // US-07&#10;  extends unmute_chat&#10;  end&#10;&#10;  event broadcast // US-08&#10;  extends broadcast&#10;    then&#10;      @actr11 toread ≔ toread  ∪ (((us×{u})∪({u}×us)) ∖ active) ∪ (((us×{u})∪({u}×us)) ∩ inactive)&#10;      @actr12 inactive ≔ inactive∖(((us×{u})∪({u}×us)) ∩ inactive)&#10;  end&#10;&#10;  event forward // US-09&#10;  extends forward&#10;    then&#10;      @actr11 toread ≔ toread  ∪ (((us×{u})∪({u}×us)) ∖ active) ∪ (((us×{u})∪({u}×us))∩inactive)&#10;      @actr12 inactive ≔ inactive∖(((us×{u})∪({u}×us))∩inactive)&#10;  end&#10;&#10;  event unselect_chat // US-10&#10;  extends unselect_chat&#10;    then&#10;      @actr31 inactive ≔ inactive ∪ {u1↦u2} // it follows from @grd2 and @invr14&#10;  end&#10;end&#10;" version="5">
+<org.eventb.core.refinesMachine name="'" org.eventb.core.target="machine0"/>
+<org.eventb.core.seesContext name="_aV9KIKWsEeeZlIzHS-bjaA" org.eventb.core.target="ctx0"/>
+<org.eventb.core.variable name="_jQ6_wJ62EeecdvrDCYb03w" org.eventb.core.identifier="user"/>
+<org.eventb.core.variable name="_jQ6_wZ62EeecdvrDCYb03w" org.eventb.core.identifier="content"/>
+<org.eventb.core.variable name="_-kW0YJ65EeecdvrDCYb03w" org.eventb.core.identifier="chat"/>
+<org.eventb.core.variable name="_yn7zwJ67EeecdvrDCYb03w" org.eventb.core.identifier="active"/>
+<org.eventb.core.variable name="_ubYMYJ6-EeecdvrDCYb03w" org.eventb.core.identifier="chatcontent"/>
+<org.eventb.core.variable name="_PZPa8Z7HEeecdvrDCYb03w" org.eventb.core.identifier="muted"/>
+<org.eventb.core.event name="_yn7zwJ67EeecdvrDCYb03x" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION">
+<org.eventb.core.action name="_TqVbYEiqEeib_KfdFs-q8w" org.eventb.core.assignment="toread ≔ ∅" org.eventb.core.label="initr11"/>
+<org.eventb.core.action name="_TqVbYUiqEeib_KfdFs-q8w" org.eventb.core.assignment="inactive ≔ ∅" org.eventb.core.label="initr12"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_yn7zwJ67EeecdvrDCYb03y" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="add_user">
+<org.eventb.core.refinesEvent name="_PzU98HkYEei4C_suPD4VBA" org.eventb.core.target="add_user"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_yn7zwJ67EeecdvrDCYb03z" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="add_content">
+<org.eventb.core.refinesEvent name="_PzU98XkYEei4C_suPD4VBA" org.eventb.core.target="add_content"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_yn7zwJ67EeecdvrDCYb03{" org.eventb.core.comment="US-01" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="create_chat_session">
+<org.eventb.core.refinesEvent name="_PzVlAHkYEei4C_suPD4VBA" org.eventb.core.target="create_chat_session"/>
+<org.eventb.core.action name="_TqWCcEiqEeib_KfdFs-q8w" org.eventb.core.assignment="inactive ≔ inactive ∪ ({u1} ◁ active)" org.eventb.core.label="actr11"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_yn7zwJ67EeecdvrDCYb03|" org.eventb.core.comment="US-02" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="select_chat">
+<org.eventb.core.refinesEvent name="_PzVlAXkYEei4C_suPD4VBA" org.eventb.core.target="select_chat"/>
+<org.eventb.core.action name="_TqWCcUiqEeib_KfdFs-q8w" org.eventb.core.assignment="toread ≔ toread ∖ {u1↦u2}" org.eventb.core.label="actr11"/>
+<org.eventb.core.action name="_TqWpgEiqEeib_KfdFs-q8w" org.eventb.core.assignment="inactive ≔ (inactive ∖ {u1↦u2}) ∪ ({u1} ◁ active)" org.eventb.core.label="actr12"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_yn7zwJ67EeecdvrDCYb03}" org.eventb.core.comment="US-03" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="chatting">
+<org.eventb.core.refinesEvent name="_PzVlAnkYEei4C_suPD4VBA" org.eventb.core.target="chatting"/>
+<org.eventb.core.action name="_TqWpgUiqEeib_KfdFs-q8w" org.eventb.core.assignment="toread ≔ toread ∪ ({u2↦u1} ∖ active) ∪ ({u2↦u1} ∩ inactive)" org.eventb.core.label="actr11"/>
+<org.eventb.core.action name="_TqXQkEiqEeib_KfdFs-q8w" org.eventb.core.assignment="inactive ≔ inactive ∖ ({u2↦u1} ∩ inactive)" org.eventb.core.label="actr12"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_yn7zwJ67EeecdvrDCYb03~" org.eventb.core.comment="US-04a" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="delete_content">
+<org.eventb.core.refinesEvent name="_PzWMEHkYEei4C_suPD4VBA" org.eventb.core.target="delete_content"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_yn7zwJ67EeecdvrDCYb04'" org.eventb.core.comment="US-04b" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="remove_content">
+<org.eventb.core.refinesEvent name="_PzWMEXkYEei4C_suPD4VBA" org.eventb.core.target="remove_content"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_yn7zwJ67EeecdvrDCYb04(" org.eventb.core.comment="US-05" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="delete_chat_session">
+<org.eventb.core.refinesEvent name="_PzWMEnkYEei4C_suPD4VBA" org.eventb.core.target="delete_chat_session"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_yn7zwJ67EeecdvrDCYb04)" org.eventb.core.comment="US-06" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="mute_chat">
+<org.eventb.core.refinesEvent name="_PzWzIHkYEei4C_suPD4VBA" org.eventb.core.target="mute_chat"/>
+<org.eventb.core.action name="_TqX3oEiqEeib_KfdFs-q8w" org.eventb.core.assignment="inactive ≔ inactive ∪ {u1↦u2}" org.eventb.core.label="act11"/>
+<org.eventb.core.action name="_TqX3oUiqEeib_KfdFs-q8w" org.eventb.core.assignment="toread ≔  toread ∖ {u1↦u2}" org.eventb.core.label="act12"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_yn7zwJ67EeecdvrDCYb04*" org.eventb.core.comment="US-07" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="unmute_chat">
+<org.eventb.core.refinesEvent name="_PzWzIXkYEei4C_suPD4VBA" org.eventb.core.target="unmute_chat"/>
+</org.eventb.core.event>
+<org.eventb.core.variable name="_TqaT4UiqEeib_KfdFs-q8w" org.eventb.core.comment="inactive and there is a content to read" org.eventb.core.identifier="toread"/>
+<org.eventb.core.variable name="_TqaT4kiqEeib_KfdFs-q8w" org.eventb.core.comment="inactive" org.eventb.core.identifier="inactive"/>
+<org.eventb.core.invariant name="_Tqa68EiqEeib_KfdFs-q8w" org.eventb.core.comment="unread status" org.eventb.core.label="invr11" org.eventb.core.predicate="toread ∈ user ↔ user"/>
+<org.eventb.core.invariant name="_Tqa68UiqEeib_KfdFs-q8w" org.eventb.core.comment="unread status is part of chat content" org.eventb.core.label="invr12" org.eventb.core.predicate="toread ⊆ chat"/>
+<org.eventb.core.invariant name="_Tqa68kiqEeib_KfdFs-q8w" org.eventb.core.comment="unread status is part of chat content" org.eventb.core.label="invr13" org.eventb.core.predicate="inactive ⊆ chat"/>
+<org.eventb.core.invariant name="_Tqa680iqEeib_KfdFs-q8w" org.eventb.core.label="invr14" org.eventb.core.predicate="active ∪ toread ∪ inactive = chat"/>
+<org.eventb.core.invariant name="_TqbiAEiqEeib_KfdFs-q8w" org.eventb.core.label="invr15" org.eventb.core.predicate="active ∩ toread = ∅"/>
+<org.eventb.core.invariant name="_TqbiAUiqEeib_KfdFs-q8w" org.eventb.core.label="invr16" org.eventb.core.predicate="active ∩ inactive = ∅"/>
+<org.eventb.core.event name="_uYylcEozEeidpOf7JCN4lg" org.eventb.core.comment="US-08" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="broadcast">
+<org.eventb.core.refinesEvent name="_PzYBQHkYEei4C_suPD4VBA" org.eventb.core.target="broadcast"/>
+<org.eventb.core.action name="_TqYesEiqEeib_KfdFs-q8w" org.eventb.core.assignment="toread ≔ toread  ∪ (((us×{u})∪({u}×us)) ∖ active) ∪ (((us×{u})∪({u}×us)) ∩ inactive)" org.eventb.core.label="actr11"/>
+<org.eventb.core.action name="_TqYesUiqEeib_KfdFs-q8w" org.eventb.core.assignment="inactive ≔ inactive∖(((us×{u})∪({u}×us)) ∩ inactive)" org.eventb.core.label="actr12"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_PzYBQXkYEei4C_suPD4VBA" org.eventb.core.comment="US-09" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="forward">
+<org.eventb.core.refinesEvent name="_PzYBQnkYEei4C_suPD4VBA" org.eventb.core.target="forward"/>
+<org.eventb.core.action name="_TqZFwEiqEeib_KfdFs-q8w" org.eventb.core.assignment="toread ≔ toread  ∪ (((us×{u})∪({u}×us)) ∖ active) ∪ (((us×{u})∪({u}×us))∩inactive)" org.eventb.core.label="actr11"/>
+<org.eventb.core.action name="_TqZFwUiqEeib_KfdFs-q8w" org.eventb.core.assignment="inactive ≔ inactive∖(((us×{u})∪({u}×us))∩inactive)" org.eventb.core.label="actr12"/>
+</org.eventb.core.event>
+<org.eventb.core.event name="_PzYoUHkYEei4C_suPD4VBA" org.eventb.core.comment="US-10" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="unselect_chat">
+<org.eventb.core.refinesEvent name="_PzYoUXkYEei4C_suPD4VBA" org.eventb.core.target="unselect_chat"/>
+<org.eventb.core.action name="_TqZs0EiqEeib_KfdFs-q8w" org.eventb.core.assignment="inactive ≔ inactive ∪ {u1↦u2}" org.eventb.core.comment="it follows from @grd2 and @invr14" org.eventb.core.label="actr31"/>
+</org.eventb.core.event>
+</org.eventb.core.machineFile>
