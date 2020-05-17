@@ -181,6 +181,6 @@
 <org.eventb.core.scAction name="u3" org.eventb.core.assignment="active ≔ active ∖ {u1 ↦ u2}" org.eventb.core.label="act1" org.eventb.core.source="/whatsapp/machine0.bum|org.eventb.core.machineFile#machine0|org.eventb.core.event#_HaLckHhmEeiouPAArxvNng|org.eventb.core.action#_YB1TOEjCEeib_KfdFs-q8w"/>
 <org.eventb.core.scParameter name="u1" org.eventb.core.source="/whatsapp/machine0.bum|org.eventb.core.machineFile#machine0|org.eventb.core.event#_HaLckHhmEeiouPAArxvNng|org.eventb.core.parameter#_YB0sIkjCEeib_KfdFs-q8w" org.eventb.core.type="USER"/>
 <org.eventb.core.scParameter name="u2" org.eventb.core.source="/whatsapp/machine0.bum|org.eventb.core.machineFile#machine0|org.eventb.core.event#_HaLckHhmEeiouPAArxvNng|org.eventb.core.parameter#_YB1TMEjCEeib_KfdFs-q8w" org.eventb.core.type="USER"/>
-<org.eventb.core.scAction name="u4" org.eventb.core.assignment="inactive ≔ inactive∪{u1 ↦ u2}" org.eventb.core.label="actr31" org.eventb.core.source="/whatsapp/machine1.bum|org.eventb.core.machineFile#machine1|org.eventb.core.event#_PzYoUHkYEei4C_suPD4VBA|org.eventb.core.action#_TqZs0EiqEeib_KfdFs-q8w"/>
+<org.eventb.core.scAction name="u4" org.eventb.core.assignment="inactive ≔ inactive∪{u1 ↦ u2}" org.eventb.core.label="actr31" org.eventb.core.source="/whatsapp/machine1.bum|org.eventb.core.machineFile#machine1|org.eventb.core.event#_PzYoUHkYEei4C_suPD4VBA|org.eventb.core.action#_VF3VgJeNEeqbpO_iB0_SXQ"/>
 </org.eventb.core.scEvent>
 </org.eventb.core.scMachineFile>

@@ -3100,8 +3100,8 @@
 <org.eventb.core.prIdent name="u" org.eventb.core.type="USER"/>
 <org.eventb.core.prIdent name="us" org.eventb.core.type="ℙ(USER)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="forward/inv7/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13" org.eventb.core.prSets="CONTENT,USER">
 <org.eventb.core.lang name="L"/>
@@ -17723,7 +17723,7 @@
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
 <org.eventb.core.prReas name="r2" org.eventb.core.prRID="org.eventb.smt.core.externalSMT"/>
 </org.eventb.core.prProof>
-<org.eventb.core.prProof name="delete_content/inv4/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="">
+<org.eventb.core.prProof name="delete_content/inv4/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prHyps="" org.eventb.core.psManual="true">
 <org.eventb.core.lang name="L"/>
 <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prHyps="">
 <org.eventb.core.prAnte name="'">
@@ -17740,12 +17740,12 @@
 <org.eventb.core.prIdent name="CONTENT" org.eventb.core.type="ℙ(CONTENT)"/>
 <org.eventb.core.prIdent name="content" org.eventb.core.type="ℙ(CONTENT)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p2" org.eventb.core.predicate="u2∈user">
+<org.eventb.core.prPred name="p1" org.eventb.core.predicate="u2∈user">
 <org.eventb.core.prIdent name="USER" org.eventb.core.type="ℙ(USER)"/>
 <org.eventb.core.prIdent name="u2" org.eventb.core.type="USER"/>
 <org.eventb.core.prIdent name="user" org.eventb.core.type="ℙ(USER)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prPred name="p1" org.eventb.core.predicate="u1∈user">
+<org.eventb.core.prPred name="p2" org.eventb.core.predicate="u1∈user">
 <org.eventb.core.prIdent name="USER" org.eventb.core.type="ℙ(USER)"/>
 <org.eventb.core.prIdent name="u1" org.eventb.core.type="USER"/>
 <org.eventb.core.prIdent name="user" org.eventb.core.type="ℙ(USER)"/>
@@ -17760,8 +17760,8 @@
 <org.eventb.core.prIdent name="USER" org.eventb.core.type="ℙ(USER)"/>
 <org.eventb.core.prIdent name="user" org.eventb.core.type="ℙ(USER)"/>
 </org.eventb.core.prPred>
-<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.typeRewrites:1"/>
+<org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
 </org.eventb.core.prProof>
 <org.eventb.core.prProof name="inv10/WD" org.eventb.core.confidence="1000" org.eventb.core.prFresh="c,u" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1" org.eventb.core.prSets="CONTENT,USER">
 <org.eventb.core.lang name="L"/>
